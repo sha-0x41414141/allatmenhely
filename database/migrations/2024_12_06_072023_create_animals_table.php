@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('animal_name');
             $table->boolean('gender');
             $table->integer('age');
-            $table->unsignedBigInteger('shelter_id');
             $table->unsignedBigInteger('breed_id');
             $table->foreign('breed_id')->references('id')->on('breeds')->onDelete('cascade');
             $table->timestamps();

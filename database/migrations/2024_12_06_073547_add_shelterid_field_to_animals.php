@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('shelters', function (Blueprint $table) {
-            $table->id();
-            $table->string('shelter_name');
-            $table->integer('capacity');
-            $table->timestamps();
+        Schema::table('animals', function (Blueprint $table) {
+            $table->unsignedBigInteger('shelter_id');
+            $table->foreign('shelter_id')->references('id')->on('shelters')->onDelete('cascade');
         });
     }
 
@@ -24,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('shelters');
+        Schema::table('animals', function (Blueprint $table) {
+            //
+        });
     }
 };

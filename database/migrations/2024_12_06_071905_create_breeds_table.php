@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('breeds', function (Blueprint $table) {
             $table->id();
             $table->string('breed_name');
+            $table->unsingedBigInteger('specie_id');
+            $table->foreign('specie_id')->references('id')->on('species')->onDelete('cascade');
             $table->timestamps();
         });
     }
