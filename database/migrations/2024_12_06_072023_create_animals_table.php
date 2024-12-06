@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('breed_id');
             $table->foreign('breed_id')->references('id')->on('breeds')->onDelete('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
